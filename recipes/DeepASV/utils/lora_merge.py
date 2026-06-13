@@ -28,7 +28,7 @@ model = Audio2Vec_based_Adapter(
     )
 model.eval()
 
-ckpt_path = '/work/zl389/workspace/LLM_ASV/publish_code/recipes/DeepASV/results/checkpoints/vox2_251005144134/ckpt_0001.pth'
+ckpt_path = '../results/checkpoints/YOUR_STAGE1_DIR/ckpt_0001.pth' # UPDATE: set to your Stage 1 checkpoint path
 ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
 ckpt_data = ckpt['modules']['spk_model']
 

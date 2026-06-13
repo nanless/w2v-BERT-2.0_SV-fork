@@ -1,0 +1,3 @@
+*.pyc
+models/
+deeplab/pretrained/audio2vector/ckpts/facebook/w2v-bert-2.0

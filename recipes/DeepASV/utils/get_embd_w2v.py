@@ -9,10 +9,10 @@ from deeplab.utils.fileio import read_hyperyaml, load_audio
 import warnings
 warnings.filterwarnings("ignore")
 
-scp_path = '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/wav_copy.scp'
+scp_path = '../../../data/test_vox/vox1-o/wav_copy.scp'
 scp_list = [line.strip().split('\t') for line in open(scp_path)]
 
-ckpt_path = '/work/zl389/workspace/LLM_ASV/recipes/DeepASV/results/audio2vec_new/checkpoints/exp_w2v_vb2_lmft_lora_adapter_mfa_merge_0.23_0.14/ckpt_0026_3500item.pth'
+ckpt_path = '../../../models/model_lmft_0.14.pth'
 
 
 ckpt_data = torch.load(ckpt_path, map_location='cpu', weights_only=False)
@@ -60,6 +60,6 @@ with torch.autocast('cuda', dtype):
 
 
 from deeplab.metric.eer import get_eer
-trial_path = '/work/zl389/workspace/LLM_ASV/data/test_vox/vox1-o/trials'
+trial_path = '../../../data/test_vox/vox1-o/trials'
 eer, threshold, _, _ = get_eer(utt2embd, trial_path)
 print('EER: {:.4f}%'.format(eer*100))
